@@ -62,7 +62,7 @@ const ItemsList = () => {
         dispatch(tagFilterChanged(tagFilter.filter(tag => tag !== removedTag)));
     };
 
-    const renderedElements = filteredNotes?.map((note) => {
+    const renderedElements = notes?.map((note) => {
         let dateUpdated = moment(note.updatedAt).fromNow();
         return (
             <Item
