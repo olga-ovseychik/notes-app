@@ -23,6 +23,7 @@ export const login = async (req, res) => {
             httpOnly: true, 
             secure: process.env.NODE_ENV !== 'development', 
             sameSite: 'None',
+            partitioned: true,
             maxAge: 7 * 24 * 60 * 60 * 1000 
         });
         generateAccessToken(res, user);
@@ -61,7 +62,7 @@ export const logout = async (req, res) => {
     if (!cookies?.jwt) return res.status(204);
 
     res.clearCookie('jwt', { 
-        httpOnly: true, sameSite: 'None', secure: process.env.NODE_ENV !== 'development' 
+        httpOnly: true, sameSite: 'None', partitioned: true, secure: process.env.NODE_ENV !== 'development' 
     });
     res.send({ message: 'Cookie destroyed' });
 }
