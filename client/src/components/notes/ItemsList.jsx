@@ -72,7 +72,7 @@ const ItemsList = () => {
         dispatch(tagFilterChanged(tagFilter.filter(tag => tag !== removedTag)));
     };
 
-    const renderedElements = notes?.map((note) => {
+    const renderedElements = filteredNotes?.map((note) => {
         let dateUpdated = moment(note.updatedAt).fromNow();
         return (
             <Item
@@ -119,7 +119,6 @@ const ItemsList = () => {
             dropdown.current.classList.remove('block');
         } 
     };
-    console.log('NOTES from database: ', notes)
     console.log('FILTERED ITEMS: ', filteredNotes)
     console.log('RENDERED ITEMS: ', renderedElements)
     console.log('ACTIVE FILTER: ', activeFilter)
