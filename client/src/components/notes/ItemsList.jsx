@@ -51,6 +51,10 @@ const ItemsList = () => {
                 return filteredNotes?.filter(item => moment(moment(item.updatedAt).format('YYYY-MM-DD')).isSame(new Date(), 'day') );
             case 'flagged': 
                 return filteredNotes?.filter(item => moment(moment(item.updatedAt).format('YYYY-MM-DD')).isSame(new Date(), 'day') );
+            case 'task':
+                    return filteredNotes?.filter(item => item.task);
+            case 'tag':
+                return filterByTags(filteredNotes, tagFilter);
             default:
                 return filteredNotes
         }
