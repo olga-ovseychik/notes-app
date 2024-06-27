@@ -112,6 +112,7 @@ const ItemsList = () => {
     console.log('NOTES from database: ', notes)
     console.log('FILTERED ITEMS: ', filteredNotes)
     console.log('RENDERED ITEMS: ', renderedElements)
+    console.log('ACTIVE FILTER: ', activeFilter)
 
     return (
         <div className="sm:max-h-dvh sm:min-h-dvh xs:h-full border border-slate-200 bg-white p-4 cursor-pointer overflow-auto scroll-smooth dark:bg-bgColor dark:border-hoverColor">           
