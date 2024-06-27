@@ -50,7 +50,7 @@ const ItemsList = () => {
         for (let [key, value] of filtersMap) {
             if (activeFilter == key) {
                 let func = new Function("return "+ value);
-                return func()()
+                func()()
             } 
         }
     }, [notes, activeFilter, tagFilter, searchQuery, filterBySearch, filtersMap, dispatch]);
