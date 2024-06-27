@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 const corsOptions = {
-    origin:'http://localhost:5173',     
+    origin:['http://localhost:5173', 'https://notes-app-frontend-theta.vercel.app'],     
     credentials:true
 };
 
