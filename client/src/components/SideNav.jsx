@@ -41,7 +41,7 @@ const SideNav = () => {
     return (
         <>
             <nav id="sideNav"
-                 className="h-dvh lg:col-span-2 sm:col-span-1 xs:col-span-2 bg-bgColor overflow-hidden origin-left dark:bg-darkModeSecColor dark:border-none dark:shadow-darkMode">
+                 className="h-lvh lg:col-span-2 sm:col-span-1 xs:col-span-2 bg-bgColor overflow-hidden origin-left dark:bg-darkModeSecColor dark:border-none dark:shadow-darkMode">
                 <div className="h-full flex flex-col justify-between">
                     <div className="flex flex-col w-full lg:items-start xl:items-start md:items-center md:justify-center mt-2 p-4 sm:p-2 gap-1.5">
                         {userInfo ? 
