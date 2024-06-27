@@ -49,7 +49,7 @@ const ItemsList = () => {
         
         for (let [key, value] of filtersMap) {
             if (activeFilter == key) {
-                return Function('return ' + value)(); 
+                Function('return ' + value)(); 
             } 
         }
     }, [notes, activeFilter, tagFilter, searchQuery, filterBySearch, filtersMap, dispatch]);
