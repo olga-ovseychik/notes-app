@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 function App() {
 	const token = useSelector(selectToken);
+	console.log('TOKEN: ', token)
 	const location = useLocation();
 	const navigate = useNavigate();
 
