@@ -22,7 +22,8 @@ export const authApiSlice = apiSlice.injectEndpoints({
                     setTimeout(() => {
                         dispatch(apiSlice.util.resetApiState());
                     }, 1000);
-                    window.location.replace("http://localhost:5173/login");
+                    // running the docker container locally: http://localhost:5173
+                    window.location.replace("https://notes-app-frontend-theta.vercel.app/login"); 
                 } catch (error) {
                     console.log(error);
                 }
