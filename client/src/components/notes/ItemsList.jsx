@@ -48,7 +48,10 @@ const ItemsList = () => {
         let filteredNotes = searchQuery != '' ? filterBySearch(notes?.slice()) : notes?.slice();
         
         for (let [key, value] of filtersMap) {
-            if (activeFilter == key) return Function(value); 
+            if (activeFilter == key) {
+                let filtered = Function('return ' + value)(); 
+                return filtered;
+            } 
         }
     }, [notes, activeFilter, tagFilter, searchQuery, filterBySearch, filtersMap, dispatch]);
 
