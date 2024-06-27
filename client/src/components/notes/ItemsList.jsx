@@ -109,7 +109,9 @@ const ItemsList = () => {
             dropdown.current.classList.remove('block');
         } 
     };
-   
+    console.log('NOTES from database: ', notes)
+    console.log('FILTERED ITEMS: ', filteredNotes)
+    console.log('RENDERED ITEMS: ', renderedElements)
 
     return (
         <div className="sm:max-h-dvh sm:min-h-dvh xs:h-full border border-slate-200 bg-white p-4 cursor-pointer overflow-auto scroll-smooth dark:bg-bgColor dark:border-hoverColor">           
