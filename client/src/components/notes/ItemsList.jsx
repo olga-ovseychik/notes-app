@@ -47,11 +47,12 @@ const ItemsList = () => {
     var filteredNotes = useMemo(() => {
         let filteredNotes = searchQuery != '' ? filterBySearch(notes?.slice()) : notes?.slice();
         
-        for (let [key, value] of filtersMap) {
-            if (activeFilter == key) {
-                Function('return ' + value)(); 
-            } 
-        }
+        // for (let [key, value] of filtersMap) {
+        //     if (activeFilter == key) {
+        //         Function('return ' + value)(); 
+        //     } 
+        // }
+        return filteredNotes?.filter(item => item.flagged)
     }, [notes, activeFilter, tagFilter, searchQuery, filterBySearch, filtersMap, dispatch]);
 
     const handleOnCreate = async (e) => {
