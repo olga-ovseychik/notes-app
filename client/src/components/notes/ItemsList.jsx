@@ -37,22 +37,22 @@ const ItemsList = () => {
     }, [tagFilter, dispatch]);
 
     const filtersMap = new Map([
-        ['untagged', `filteredNotes`],
-        ['recent', `filteredNotes?.filter(item => moment(moment(item.updatedAt).format('YYYY-MM-DD')).isSame(new Date(), 'day') )`],
-        ['flagged', `filteredNotes?.filter(item => item.flagged)`],
-        ['task', `filteredNotes?.filter(item => item.task)`],
-        ['tag', `filterByTags(filteredNotes, tagFilter)`],
+        ['untagged', `() => {filteredNotes}`],
+        ['recent', `() => {filteredNotes?.filter(item => moment(moment(item.updatedAt).format('YYYY-MM-DD')).isSame(new Date(), 'day') )}`],
+        ['flagged', `() => {filteredNotes?.filter(item => item.flagged)}`],
+        ['task', `() => {filteredNotes?.filter(item => item.task)}`],
+        ['tag', `() => {filterByTags(filteredNotes, tagFilter)}`],
     ]);
 
     var filteredNotes = useMemo(() => {
         let filteredNotes = searchQuery != '' ? filterBySearch(notes?.slice()) : notes?.slice();
         
-        // for (let [key, value] of filtersMap) {
-        //     if (activeFilter == key) {
-        //         Function('return ' + value)(); 
-        //     } 
-        // }
-        return filteredNotes?.filter(item => item.flagged)
+        for (let [key, value] of filtersMap) {
+            if (activeFilter == key) {
+                let func = new Function("return "+ value);
+                return func()()
+            } 
+        }
     }, [notes, activeFilter, tagFilter, searchQuery, filterBySearch, filtersMap, dispatch]);
 
     const handleOnCreate = async (e) => {
