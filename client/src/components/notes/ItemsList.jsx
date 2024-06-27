@@ -39,9 +39,9 @@ const ItemsList = () => {
     const filtersMap = new Map([
         ['untagged', `filteredNotes`],
         ['recent', `filteredNotes?.filter(item => moment(moment(item.updatedAt).format('YYYY-MM-DD')).isSame(new Date(), 'day') )`],
-        ['flagged', `() => filteredNotes?.filter(item => item.flagged)`],
-        ['task', `() => filteredNotes?.filter(item => item.task)`],
-        ['tag', `() => filterByTags(filteredNotes, tagFilter)`],
+        ['flagged', `filteredNotes?.filter(item => item.flagged)`],
+        ['task', `filteredNotes?.filter(item => item.task)`],
+        ['tag', `filterByTags(filteredNotes, tagFilter)`],
     ]);
 
     var filteredNotes = useMemo(() => {
@@ -50,7 +50,7 @@ const ItemsList = () => {
             case 'recent':
                 return filteredNotes?.filter(item => moment(moment(item.updatedAt).format('YYYY-MM-DD')).isSame(new Date(), 'day') );
             case 'flagged': 
-                return filteredNotes?.filter(item => moment(moment(item.updatedAt).format('YYYY-MM-DD')).isSame(new Date(), 'day') );
+                return filteredNotes?.filter(item => item.flagged);
             case 'task':
                     return filteredNotes?.filter(item => item.task);
             case 'tag':
