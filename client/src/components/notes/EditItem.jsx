@@ -118,7 +118,9 @@ const EditItem = () => {
     const handleOnBlurTodo = (e) => {
         e.preventDefault();
         addTodo();
-        todoInputRef?.current.focus();
+        if (todo != '') { 
+            todoInputRef?.current.focus();
+        }   
     }
 
     const handleTodoKeyDown = (e) => {
