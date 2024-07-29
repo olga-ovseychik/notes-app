@@ -22,7 +22,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                     setTimeout(() => {
                         dispatch(apiSlice.util.resetApiState());
                     }, 1000);
-                    window.location.replace("notes-app-frontend-theta.vercel.app/login"); // http://localhost:5173/login
+                    window.location.replace("https://notes-app-frontend-theta.vercel.app/login"); // http://localhost:5173/login
                 } catch (error) {
                     console.log(error);
                 }
