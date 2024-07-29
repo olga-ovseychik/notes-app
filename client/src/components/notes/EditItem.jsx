@@ -128,6 +128,14 @@ const EditItem = () => {
         }
     };
 
+    const handleBeforeInput = (e) => {
+        if(e.inputType === 'deleteContentBackward') {
+            // check whatever you want to check for
+            // if(!myCondition(e))
+                e.preventDefault() // will block the deletion
+        }
+    }
+
     const handleCheckedTodo = (todo, id) => {
         let todoInput = document.getElementById(`todo_input_${id}`);
         let todoCheck = document.getElementById(`todo-checkbox_${id}`);
@@ -252,6 +260,7 @@ const EditItem = () => {
                                 onChange={e => setTodo(e.target.value)}
                                 className={`w-full focus:outline-none focus:bg-zinc-50 rounded-md p-2 text-textColor dark:text-semiLight dark:focus:bg-hoverColor text-base bg-inherit resize-none min-h-6 max-h-16`}
                                 onKeyDown={handleTodoKeyDown}
+                                onBeforeInput={handleBeforeInput}
                                 onBlur={handleEditNote}
                                 value={todo}
                                 placeholder="+ item"/>
