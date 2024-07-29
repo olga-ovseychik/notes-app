@@ -136,18 +136,16 @@ function Login() {
                 <p className="text-textColor dark:text-semiLight">Don’t have an account yet?  
                     <a href="/register" className="text-darkColor ml-2 font-semibold">Sign Up</a>
                 </p>
-                
-
-                <a className="flex self-end text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
-            </form>
-
-            {!user?.roles.includes('Guest') ?
+                {!user?.roles.includes('Guest') ?
                     <button 
                         onClick={handleGuestLogin}
                         className={`w-full h-10 border border-lime-200 hover:bg-lime-200 text-textColor rounded-md disabled:opacity-75`}>
                         Log in as a Guest
                     </button>
                 : <Link to='/notes' className="self-center w-full text-center text-darkColor border hover:border-darkColor rounded-md p-2">You're already logged in as a guest</Link>}
+
+                <a className="flex self-end text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
+            </form>
 
             <div className={`col-span-8 xs:hidden lg:flex bg-bgLogin bg-cover`}>
                 <div className="backdrop-blur-md bg-white/2 w-full flex flex-col justify-center items-center p-16">
