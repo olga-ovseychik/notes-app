@@ -32,7 +32,7 @@ const EditItem = () => {
     const divSaveInfo = document.getElementById(`${noteId}_s`);
     const input = document.getElementById(`$_${noteId}`); 
 
-    const tagInput = useRef(null);
+    // const tagInput = useRef(null);
     const settingsList = useRef(null);
     const textarea = useRef(null);
 
@@ -79,7 +79,7 @@ const EditItem = () => {
     };
 
     const handleTagInputKeyDown = (e) => {
-        if (e.key == 'Enter') {
+        if (e.key === 'Enter') {
             e.preventDefault();
             setTagsList([...note.tags, tag]);
             editNote({ id: noteId, tags: [...note.tags, tag] });
@@ -112,9 +112,10 @@ const EditItem = () => {
     };
 
     const handleTodoKeyDown = (e) => {
-        if (e.key == 'Enter') {
+        if (e.key === 'Enter') {
+            e.preventDefault();
             if (todo != '') {
-                e.preventDefault();
+                
                 setTodoList([...note.todos, {text: todo, completed: false}]);
                 editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
                 setTodo('')
@@ -271,10 +272,10 @@ const EditItem = () => {
                     <div className="relative inline-block w-20 mr-2">
                         <i className="fa-solid fa-tag absolute left-2 top-1.5 text-zinc-500 dark:text-secTxtColor"></i>
                         <input  
-                            ref={tagInput} 
+                            // ref={tagInput} 
                             onKeyDown={handleTagInputKeyDown} 
                             onChange={(e) => setTag(e.target.value)}
-                            onBlur={handleEditNote}
+                            // onBlur={handleEditNote}
                             type="text" 
                             placeholder={`+ tag`}
                             className={`focus:outline-none rounded-md p-2 text-xs bg-slate-100 dark:bg-hoverColor text-slate-600 placeholder:text-zinc-500 dark:placeholder:text-secTxtColor dark:text-semiLight pl-8 py-1 px-2 mr-2 w-full placeholder:text-xs`}/> 
