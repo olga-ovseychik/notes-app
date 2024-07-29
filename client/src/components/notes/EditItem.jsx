@@ -106,7 +106,7 @@ const EditItem = () => {
     };
 
     const onKeyDownTitle = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' || e.keyCode == 40) {
             if (textarea.current) textarea?.current.focus();
         }
     };
