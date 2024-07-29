@@ -83,9 +83,9 @@ const EditItem = () => {
         if (e.key === 'Enter') {
             e.preventDefault();
             let tagList = [...note.tags];
-            let updatedTags = tagList.filter((value, index) => tagList.indexOf(value) === index);
-            setTagsList([updatedTags, tag]);
-            editNote({ id: noteId, tags: [updatedTags, tag] });
+            let updatedTags = tagList.filter((value, index) => tagList.indexOf(value) == index);
+            setTagsList([...updatedTags, tag]);
+            editNote({ id: noteId, tags: [...updatedTags, tag] });
             e.target.value = '';
             e.target.blur();
         }
