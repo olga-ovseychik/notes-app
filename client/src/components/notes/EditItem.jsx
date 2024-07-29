@@ -82,8 +82,11 @@ const EditItem = () => {
     const handleTagInputKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
+            
             let tagList = [...note.tags];
-            let updatedTags = tagList.filter((value, index) => tagList.indexOf(value) == index);
+            let updatedTags = [...new Set(tagList)]
+            console.log('NONE duplicates tag list: ', updatedTags)
+
             setTagsList([...updatedTags, tag]);
             editNote({ id: noteId, tags: [...updatedTags, tag] });
             e.target.value = '';
