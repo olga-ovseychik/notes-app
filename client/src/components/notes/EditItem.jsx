@@ -72,6 +72,7 @@ const EditItem = () => {
     };
 
     const handleKeyDown = (e) => {
+        console.log('KEY is: ', e.key)
         if (e.key === 'Enter') {
             e.preventDefault();
             input ? input.blur() : null;
@@ -79,6 +80,7 @@ const EditItem = () => {
     };
 
     const handleTagInputKeyDown = (e) => {
+        console.log('KEY is: ', e.key)
         if (e.key === 'Enter') {
             e.preventDefault();
             setTagsList([...note.tags, tag]);
@@ -106,14 +108,16 @@ const EditItem = () => {
     };
 
     const onKeyDownTitle = (e) => {
-        if (e.key === 'Enter' || e.keyCode == 40) {
+        console.log('KEY is: ', e.key)
+        if (e.key === 'Enter') {
             if (textarea.current) textarea?.current.focus();
         }
     };
 
     const handleTodoKeyDown = (e) => {
         console.log('KEY: ', e.key)
-        if (e.key === 'Enter') {
+        console.log('KEY CODE: ', e.keyCode)
+        if (e.key === 'Enter' || e.keyCode == 40) {
             e.preventDefault();
             console.log('Enter was pressed')
             if (todo != '') {
