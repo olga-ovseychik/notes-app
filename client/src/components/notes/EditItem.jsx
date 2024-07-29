@@ -92,9 +92,16 @@ const EditItem = () => {
     };
 
     const handleRemoveNote = () => {
-        let updatedTagFilter = [...new Set([...tagFilter])]
+        let tagFilterData = [...tagFilter]
+        // let updatedTagFilter = tagsList.every(filter => tagFilterData.includes(filter))
+        let updatedTagFilter
+
+        for (var i = 0; i < tagsList.length; i++) {
+            if (tagFilterData.indexOf(tagsList[i]) > -1) {
+                updatedTagFilter = tagFilterData.filter(filter => filter !== tagsList[i])
+            }
+        }
         dispatch(tagFilterChanged(updatedTagFilter))
-        // dispatch(tagFilterChanged([...tagFilter, tag]))
 
         deleteNote(noteId);
         hideShowSettings();
