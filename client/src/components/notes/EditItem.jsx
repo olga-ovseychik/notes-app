@@ -35,6 +35,7 @@ const EditItem = () => {
     // const tagInput = useRef(null);
     const settingsList = useRef(null);
     const textarea = useRef(null);
+    const todoInputRef = useRef(null);
 
     const addTag = useCallback(
         (tag) => () => {
@@ -119,7 +120,8 @@ const EditItem = () => {
         if (todo != '') {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
-            setTodo('')
+            setTodo('');
+            todoInputRef?.current.focus();
         }
     }
 
@@ -266,6 +268,7 @@ const EditItem = () => {
                                 disabled={true}
                                 name="input"/>
                             <input 
+                                ref={todoInputRef}
                                 onChange={e => setTodo(e.target.value)}
                                 className={`w-full focus:outline-none focus:bg-zinc-50 rounded-md p-2 text-textColor dark:text-semiLight dark:focus:bg-hoverColor text-base bg-inherit resize-none min-h-6 max-h-16`}
                                 onKeyDown={handleTodoKeyDown}
