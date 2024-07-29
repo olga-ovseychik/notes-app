@@ -82,10 +82,6 @@ const EditItem = () => {
     const handleTagInputKeyDown = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
-
-            // let tagList = [...note.tags];
-            // let updatedTags = [...new Set(tagList)]
-            // console.log('NONE duplicates tag list: ', updatedTags)
             if (![...note.tags]?.includes(tag)) {
                 setTagsList([...note.tags, tag]);
                 editNote({ id: noteId, tags: [ ...note.tags, tag] });
@@ -96,6 +92,8 @@ const EditItem = () => {
     };
 
     const handleRemoveNote = () => {
+        setTagsList([]);
+
         deleteNote(noteId);
         hideShowSettings();
         navigate('/');
