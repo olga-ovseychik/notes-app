@@ -117,27 +117,24 @@ const EditItem = () => {
 
     const handleOnBlurTodo = (e) => {
         e.preventDefault();
+        addTodo();
+        todoInputRef?.current.focus();
+    }
+
+    const handleTodoKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            addTodo();
+        }
+    };
+
+    function addTodo() {
         if (todo != '') {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
             setTodo('');
-            todoInputRef?.current.focus();
         }
     }
-
-    const handleTodoKeyDown = (e) => {
-        console.log('KEY: ', e.key)
-        console.log('KEY CODE: ', e.keyCode)
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            console.log('Enter was pressed')
-            if (todo != '') {
-                setTodoList([...note.todos, {text: todo, completed: false}]);
-                editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
-                setTodo('')
-            }
-        }
-    };
 
     // const handleBeforeInput = (e) => {
     //     if(e.inputType === 'deleteContentBackward') {
