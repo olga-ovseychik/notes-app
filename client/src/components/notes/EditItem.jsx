@@ -115,7 +115,6 @@ const EditItem = () => {
         if (e.key === 'Enter') {
             e.preventDefault();
             if (todo != '') {
-                
                 setTodoList([...note.todos, {text: todo, completed: false}]);
                 editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
                 setTodo('')
@@ -247,7 +246,7 @@ const EditItem = () => {
                                 onChange={e => setTodo(e.target.value)}
                                 className={`w-full focus:outline-none focus:bg-zinc-50 rounded-md p-2 text-textColor dark:text-semiLight dark:focus:bg-hoverColor text-base bg-inherit resize-none min-h-6 max-h-16`}
                                 onKeyDown={handleTodoKeyDown}
-                                // onBlur={() => setTodo('')}
+                                onBlur={() => setTodo('')}
                                 value={todo}
                                 placeholder="+ item"/>
                         </div> 
@@ -275,7 +274,7 @@ const EditItem = () => {
                             // ref={tagInput} 
                             onKeyDown={handleTagInputKeyDown} 
                             onChange={(e) => setTag(e.target.value)}
-                            // onBlur={handleEditNote}
+                            onBlur={() => setTag('')}
                             type="text" 
                             placeholder={`+ tag`}
                             className={`focus:outline-none rounded-md p-2 text-xs bg-slate-100 dark:bg-hoverColor text-slate-600 placeholder:text-zinc-500 dark:placeholder:text-secTxtColor dark:text-semiLight pl-8 py-1 px-2 mr-2 w-full placeholder:text-xs`}/> 
