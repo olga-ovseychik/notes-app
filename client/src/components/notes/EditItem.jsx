@@ -112,8 +112,10 @@ const EditItem = () => {
     };
 
     const handleTodoKeyDown = (e) => {
+        
         if (e.key === 'Enter') {
             e.preventDefault();
+            console.log('Enter was pressed')
             if (todo != '') {
                 setTodoList([...note.todos, {text: todo, completed: false}]);
                 editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
