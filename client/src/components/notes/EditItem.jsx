@@ -73,7 +73,6 @@ const EditItem = () => {
     };
 
     const handleKeyDown = (e) => {
-        console.log('KEY is: ', e.key)
         if (e.key === 'Enter') {
             e.preventDefault();
             input ? input.blur() : null;
@@ -81,11 +80,12 @@ const EditItem = () => {
     };
 
     const handleTagInputKeyDown = (e) => {
-        console.log('KEY is: ', e.key)
         if (e.key === 'Enter') {
             e.preventDefault();
-            setTagsList([...note.tags, tag]);
-            editNote({ id: noteId, tags: [...note.tags, tag] });
+            let tagList = [...note.tags];
+            let updatedTags = tagList.filter((value, index) => tagList.indexOf(value) === index);
+            setTagsList([updatedTags, tag]);
+            editNote({ id: noteId, tags: [updatedTags, tag] });
             e.target.value = '';
             e.target.blur();
         }
@@ -109,7 +109,6 @@ const EditItem = () => {
     };
 
     const onKeyDownTitle = (e) => {
-        console.log('KEY is: ', e.key)
         if (e.key === 'Enter') {
             if (textarea.current) textarea?.current.focus();
         }
@@ -137,14 +136,6 @@ const EditItem = () => {
             setTodo('');
         }
     }
-
-    // const handleBeforeInput = (e) => {
-    //     if(e.inputType === 'deleteContentBackward') {
-    //         // check whatever you want to check for
-    //         if(!myCondition(e))
-    //             e.preventDefault() // will block the deletion
-    //     }
-    // }
 
     const handleCheckedTodo = (todo, id) => {
         let todoInput = document.getElementById(`todo_input_${id}`);
