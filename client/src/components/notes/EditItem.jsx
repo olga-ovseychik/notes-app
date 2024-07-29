@@ -114,10 +114,18 @@ const EditItem = () => {
         }
     };
 
+    const handleOnBlurTodo = () => {
+        if (todo != '') {
+            setTodoList([...note.todos, {text: todo, completed: false}]);
+            editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
+            setTodo('')
+        }
+    }
+
     const handleTodoKeyDown = (e) => {
         console.log('KEY: ', e.key)
         console.log('KEY CODE: ', e.keyCode)
-        if (e.key === 'Enter' || e.keyCode == 40) {
+        if (e.key === 'Enter') {
             e.preventDefault();
             console.log('Enter was pressed')
             if (todo != '') {
@@ -128,13 +136,13 @@ const EditItem = () => {
         }
     };
 
-    const handleBeforeInput = (e) => {
-        if(e.inputType === 'deleteContentBackward') {
-            // check whatever you want to check for
-            // if(!myCondition(e))
-                e.preventDefault() // will block the deletion
-        }
-    }
+    // const handleBeforeInput = (e) => {
+    //     if(e.inputType === 'deleteContentBackward') {
+    //         // check whatever you want to check for
+    //         if(!myCondition(e))
+    //             e.preventDefault() // will block the deletion
+    //     }
+    // }
 
     const handleCheckedTodo = (todo, id) => {
         let todoInput = document.getElementById(`todo_input_${id}`);
@@ -260,8 +268,7 @@ const EditItem = () => {
                                 onChange={e => setTodo(e.target.value)}
                                 className={`w-full focus:outline-none focus:bg-zinc-50 rounded-md p-2 text-textColor dark:text-semiLight dark:focus:bg-hoverColor text-base bg-inherit resize-none min-h-6 max-h-16`}
                                 onKeyDown={handleTodoKeyDown}
-                                onBeforeInput={handleBeforeInput}
-                                onBlur={handleEditNote}
+                                onBlur={handleOnBlurTodo}
                                 value={todo}
                                 placeholder="+ item"/>
                         </div> 
