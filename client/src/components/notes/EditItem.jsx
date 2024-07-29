@@ -247,7 +247,7 @@ const EditItem = () => {
                                 onChange={e => setTodo(e.target.value)}
                                 className={`w-full focus:outline-none focus:bg-zinc-50 rounded-md p-2 text-textColor dark:text-semiLight dark:focus:bg-hoverColor text-base bg-inherit resize-none min-h-6 max-h-16`}
                                 onKeyDown={handleTodoKeyDown}
-                                onBlur={() => setTodo('')}
+                                // onBlur={() => setTodo('')}
                                 value={todo}
                                 placeholder="+ item"/>
                         </div> 
