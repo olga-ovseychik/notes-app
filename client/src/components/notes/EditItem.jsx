@@ -92,7 +92,9 @@ const EditItem = () => {
     };
 
     const handleRemoveNote = () => {
-        setTagsList([]);
+        let updatedTagFilter = [...new Set([...tagFilter])]
+        dispatch(tagFilterChanged(updatedTagFilter))
+        // dispatch(tagFilterChanged([...tagFilter, tag]))
 
         deleteNote(noteId);
         hideShowSettings();
