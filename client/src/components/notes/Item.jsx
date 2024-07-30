@@ -18,13 +18,17 @@ const Item = ({ noteId, text, title, updatedAt, todos, task }) => {
             className={`flex flex-col justify-between max-w-full min-h-28 my-2 border-l-8 border-l-transparent border-b border-zinc-200 box-border p-2 hover:bg-light hover:rounded-lg hover:border-b-transparent hover:border-l-8 hover:border-l-mainColor cursor-pointer dark:hover:bg-hoverColor`}
             onClick={handleOnClick} 
             id={noteId}>
-            <div id='context' className={`xs:text-base break-words ${!title ? 'text-secTxtColor dark:text-semiLight' : 'text-hoverColor dark:text-zinc-200'}`}>
-                {title ? `${title.length > 30 ? `${title.slice(0, 30)}...` : title}` : 'Untitled'} 
+            <div id='context' >
+                <div className={`xs:text-base break-words ${!title ? 'text-secTxtColor dark:text-semiLight' : 'text-hoverColor dark:text-zinc-200'}`}>
+                    {title ? `${title.length > 30 ? `${title.slice(0, 30)}...` : title}` : 'Untitled'} 
+                </div>
+                <div className={`text-sm break-words ${!text ? 'text-secTxtColor dark:text-semiLight' : 'text-hoverColor dark:text-zinc-200'}`}>
+                    {!text && todos.length == 0 && !task ? `Just start writing something` : `${text.length > 40 ? `${text.slice(0, 40)}...` : text}`}
+                    {!text && task && todos.length == 0 ? `Type some todos` : null}
+                </div>
             </div>
-            <div className={`text-sm break-words ${!text ? 'text-secTxtColor dark:text-semiLight' : 'text-hoverColor dark:text-zinc-200'}`}>
-                {!text && todos.length == 0 && !task ? `Just start writing something` : `${text.length > 40 ? `${text.slice(0, 40)}...` : text}`}
-                {!text && task && todos.length == 0 ? `Type some todos` : null}
-            </div>
+
+
             {todos.length > 0 ?
                  <div>
                     <div className="inline-block relative py-2">
