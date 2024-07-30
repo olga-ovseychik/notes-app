@@ -5,6 +5,7 @@ import { EyeIcon } from '@heroicons/react/24/outline';
 import { EyeSlashIcon } from '@heroicons/react/24/outline';
 import { useGetUserQuery, useUpdateUserProfileMutation, useDeleteUserMutation } from '../../app/services/usersApiSlice';
 import { selectUserInfo } from '../../app/services/authSlice';
+import Spinner from '../Spinner';
 
 
 const Profile = () => {
@@ -19,7 +20,7 @@ const Profile = () => {
             // refetchOnFocus: true,
             refetchOnMountOrArgChange: true,
     });
-    const [updateUserProfile, {isLoading, isSuccess: isUpdateProfileSuccess}] = useUpdateUserProfileMutation();
+    const [updateUserProfile, {isLoading}] = useUpdateUserProfileMutation();
     const [deleteUser] = useDeleteUserMutation();
     const [firstName, setFirstName] = useState(user?.firstName)
     const [lastName, setLastName] = useState(user?.lastName)
@@ -48,7 +49,6 @@ const Profile = () => {
 
     let content;
 
-    // if (isLoading) content = <p>Loading</p> 
     if (isError) { content = <p className="errmsg">{error?.data?.message}</p> }
 
     const submitHandler = async (e) => {
@@ -169,8 +169,9 @@ const Profile = () => {
             </div>
         </div>
         <div className='flex justify-end sm:gap-6 xs:flex-col xs:gap-3'>
-            {/* <div>{isUpdateProfileSuccess ? 'Profile successfully updated' : null}</div> */}
-            <button type='submit' className='sm:w-1/4 xs:w-full h-10 rounded-md bg-mainColor hover:bg-amber-200 text-textColor shadow-lg self-end'>{isLoading ? 'Loading' : 'Save'}</button>
+            <button type='submit' className='sm:w-1/4 xs:w-full h-10 rounded-md bg-mainColor hover:bg-amber-200 text-textColor shadow-lg self-end'>
+                {isLoading ? <Spinner size={6}/> : 'Save'}
+            </button>
             <button onClick={onAccountDelete} className='sm:w-1/4 xs:w-full h-10 rounded-md bg-red-100 hover:bg-red-500 text-red-500 hover:text-white shadow-lg self-end'>Delete account</button>
         </div>
     </form>
