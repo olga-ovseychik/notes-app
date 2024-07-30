@@ -35,7 +35,7 @@ const Item = ({ noteId, text, title, updatedAt, todos, task }) => {
                     </div>
                 </div> 
             : null}
-            <div className="text-xs text-slate-500 dark:text-light">{`${updatedAt}`}</div>
+            <div className="text-xs text-slate-500 dark:text-light ignore">{`${updatedAt}`}</div>
         </div>
     )
 }

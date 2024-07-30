@@ -33,7 +33,12 @@ const ItemsList = () => {
     const searchResultOutput = document.querySelector('#search-result');
     const tagListElement = useRef();
     var tagList = [];
+
     const markInstance = new Mark(document.querySelector("#context"));
+    const options = {
+        "exclude": [".ignore"],
+        "caseSensitive": false,
+    };
 
     useEffect(() => {
         if (activeFilter == 'tag') {
@@ -71,7 +76,7 @@ const ItemsList = () => {
     useMemo(() => {
         markInstance.unmark({
             done: () => {
-              markInstance.mark(searchQuery);
+              markInstance.mark(searchQuery, options);
             }
           });
     }, [searchQuery])
