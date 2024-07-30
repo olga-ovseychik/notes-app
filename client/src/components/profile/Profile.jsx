@@ -99,6 +99,12 @@ const Profile = () => {
     function finishSubmit() {
         try {
             updateUserProfile({ id, firstName, lastName, email, password });
+
+            setTimeout(() => {
+                divSaveInfo.classList.remove('visible');
+                divSaveInfo.classList.add('invisible');
+            }, 2000);
+            
         } catch (error) {
             console.log(error?.data?.message || error.error);
         }

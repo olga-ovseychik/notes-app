@@ -60,6 +60,8 @@ const EditItem = () => {
             divSaveInfo.classList.remove('invisible');
             divSaveInfo.classList.add('visible');
             
+            console.log('update in editItem')
+            
             // setTimeout(() => {
             //     divSaveInfo.classList.remove('visible');
             //     divSaveInfo.classList.add('invisible');
