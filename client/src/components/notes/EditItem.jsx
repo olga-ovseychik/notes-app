@@ -210,7 +210,7 @@ const EditItem = () => {
     if (isLoading) {
         return (
             <div className="flex justify-center items-center">
-                <Spinner size={16}/>
+                <Spinner size={16} color={'mainColor'}/>
             </div>
         )
     }

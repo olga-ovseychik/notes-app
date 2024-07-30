@@ -270,7 +270,7 @@ const ItemsList = () => {
             }  */}
             </div>
             {isLoading
-                ? <div className="flex justify-center items-center"><Spinner size={16}/></div> 
+                ? <div className="flex justify-center items-center"><Spinner size={16} color={'mainColor'} /></div> 
                 : <div id='context' className="flex flex-col justify-start">{renderedElements}</div>
             }   
         </div>
