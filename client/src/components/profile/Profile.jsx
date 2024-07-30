@@ -29,11 +29,12 @@ const Profile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log('SUBMITTING: ', submitting)
         if (user?.roles.includes('Guest')) {
             navigate('/notes');
         }
         if (Object.keys(errors).length === 0 && submitting) {
+            console.log('SUBMITTING: ', submitting)
+            console.log('call finishSubmit()')
             finishSubmit();
         }
     }, [submitting, errors, user]);
