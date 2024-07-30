@@ -104,7 +104,7 @@ const Profile = () => {
                 divSaveInfo.classList.remove('visible');
                 divSaveInfo.classList.add('invisible');
             }, 2000);
-            
+
         } catch (error) {
             console.log(error?.data?.message || error.error);
         }
@@ -173,8 +173,8 @@ const Profile = () => {
                 {errors.confirmPassword ? (<p className="text-red-400 italic mt-2">{errors.confirmPassword}</p>) : null}
             </div>
         </div>
-        <div className="flex justify-between mt-2" id='divSaveInfo' ref={divSaveInfo}>
-            <div className="invisible text-xs text-slate-500 pl-2">All changes saved</div>
+        <div className="invisible flex justify-between mt-2" id='divSaveInfo' ref={divSaveInfo}>
+            <div className=" text-xs text-slate-500 pl-2">All changes saved</div>
         </div>
         <div className='flex justify-end sm:gap-6 xs:flex-col xs:gap-3'>
             {/* <div>{isUpdateProfileSuccess ? 'Profile successfully updated' : null}</div> */}
