@@ -30,6 +30,7 @@ const Profile = () => {
     var divSaveInfo = document.getElementById("divSaveInfo");
 
     useEffect(() => {
+        console.log('SUBMITTING: ', submitting)
         if (user?.roles.includes('Guest')) {
             navigate('/notes');
         }
@@ -171,7 +172,7 @@ const Profile = () => {
             <div className="invisible text-xs text-slate-500 pl-2">All changes saved</div>
         </div>
         <div className='flex justify-end sm:gap-6 xs:flex-col xs:gap-3'>
-            <div>{isUpdateProfileSuccess ? 'Profile successfully updated' : null}</div>
+            {/* <div>{isUpdateProfileSuccess ? 'Profile successfully updated' : null}</div> */}
             <button type='submit' className='sm:w-1/4 xs:w-full h-10 rounded-md bg-mainColor hover:bg-amber-200 text-textColor shadow-lg self-end'>Save</button>
             <button onClick={onAccountDelete} className='sm:w-1/4 xs:w-full h-10 rounded-md bg-red-100 hover:bg-red-500 text-red-500 hover:text-white shadow-lg self-end'>Delete account</button>
         </div>
