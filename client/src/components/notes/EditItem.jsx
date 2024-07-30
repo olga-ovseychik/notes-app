@@ -92,7 +92,7 @@ const EditItem = () => {
     };
 
     const handleRemoveNote = () => {
-        filterTagList();
+        // filterTagList();
 
         deleteNote(noteId);
         hideShowSettings();
@@ -172,7 +172,7 @@ const EditItem = () => {
         setTagsList(modifiedTagArr);
         editNote({ id: noteId, tags: [...modifiedTagArr] });
 
-        filterTagList();
+        // filterTagList();
         // dispatch(tagFilterChanged(tagFilter.filter(tag => tag !== deletedTag)));
     };
 
