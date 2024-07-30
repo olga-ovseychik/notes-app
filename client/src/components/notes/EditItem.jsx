@@ -92,15 +92,7 @@ const EditItem = () => {
     };
 
     const handleRemoveNote = () => {
-        let tagFilterData = [...tagFilter]
-        let updatedTagFilter
-
-        for (var i = 0; i < tagsList.length; i++) {
-            if (tagFilterData.indexOf(tagsList[i]) > -1) {
-                updatedTagFilter = tagFilterData.filter(filter => filter !== tagsList[i])
-            }
-        }
-        dispatch(tagFilterChanged(updatedTagFilter))
+        filterTagList();
 
         deleteNote(noteId);
         hideShowSettings();
@@ -179,7 +171,9 @@ const EditItem = () => {
         let modifiedTagArr = note.tags.filter(tag => tag != deletedTag);
         setTagsList(modifiedTagArr);
         editNote({ id: noteId, tags: [...modifiedTagArr] });
-        dispatch(tagFilterChanged(tagFilter.filter(tag => tag !== deletedTag)));
+
+        filterTagList();
+        // dispatch(tagFilterChanged(tagFilter.filter(tag => tag !== deletedTag)));
     };
 
     const handleOnDeleteTodo = (deletedTodo) => {
@@ -196,6 +190,18 @@ const EditItem = () => {
 
     function checkCompletedTodos() {
         return note.todos.some(todo => todo.completed);
+    }
+
+    function filterTagList() {
+        let tagFilterData = [...tagFilter];
+        let updatedTagFilter;
+
+        for (var i = 0; i < tagsList.length; i++) {
+            if (tagFilterData.indexOf(tagsList[i]) > -1) {
+                updatedTagFilter = tagFilterData.filter(filter => filter !== tagsList[i]);
+            }
+        }
+        dispatch(tagFilterChanged(updatedTagFilter));
     }
 
 
