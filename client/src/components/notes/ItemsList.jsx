@@ -266,7 +266,7 @@ const ItemsList = () => {
             </div>
             {isLoading
                 ? <div className="flex justify-center items-center"><Spinner /></div> 
-                : <div id='context' className="flex flex-col justify-start">{renderedElements}</div>
+                : <div className="flex flex-col justify-start">{renderedElements}</div>
             }   
         </div>
     )
