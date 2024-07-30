@@ -92,15 +92,15 @@ const EditItem = () => {
     };
 
     const handleRemoveNote = () => {
-        // let tagFilterData = [...tagFilter]
-        // let updatedTagFilter
+        let tagFilterData = [...tagFilter]
+        let updatedTagFilter
 
-        // for (var i = 0; i < tagsList.length; i++) {
-        //     if (tagFilterData.indexOf(tagsList[i]) > -1) {
-        //         updatedTagFilter = tagFilterData.filter(filter => filter !== tagsList[i])
-        //     }
-        // }
-        // dispatch(tagFilterChanged(updatedTagFilter))
+        for (var i = 0; i < tagsList.length; i++) {
+            if (tagFilterData.indexOf(tagsList[i]) > -1) {
+                updatedTagFilter = tagFilterData.filter(filter => filter !== tagsList[i])
+            }
+        }
+        dispatch(tagFilterChanged(updatedTagFilter))
 
         deleteNote(noteId);
         hideShowSettings();
