@@ -13,7 +13,7 @@ const EditItem = () => {
     const { noteId } = useParams();
     const {data: note, isLoading} = useGetNoteQuery(noteId);
 
-    const [editNote] = useEditNoteMutation();
+    const [editNote, {isLoading: isUpdateNoteLoading}] = useEditNoteMutation();
     const [deleteNote] = useDeleteNoteMutation();
     const activeFilter = useSelector(state => state.filters.activeFilter);
     const tagFilter = useSelector(state => state.tags.tagFilter);
@@ -59,16 +59,16 @@ const EditItem = () => {
 
             divSaveInfo.classList.remove('invisible');
             divSaveInfo.classList.add('visible');
-
-            setTimeout(() => {
-                divSaveInfo.classList.remove('visible');
-                divSaveInfo.classList.add('invisible');
-            }, 2000);
+            
+            // setTimeout(() => {
+            //     divSaveInfo.classList.remove('visible');
+            //     divSaveInfo.classList.add('invisible');
+            // }, 2000);
         }   
     };
 
-    const handleEditNote = (evt) => {
-        evt.preventDefault();
+    const handleEditNote = (e) => {
+        e.preventDefault();
         updateNote();
     };
 
@@ -192,17 +192,17 @@ const EditItem = () => {
         return note.todos.some(todo => todo.completed);
     }
 
-    function filterTagList() {
-        let tagFilterData = [...tagFilter];
-        let updatedTagFilter;
+    // function filterTagList() {
+    //     let tagFilterData = [...tagFilter];
+    //     let updatedTagFilter;
 
-        for (var i = 0; i < tagsList.length; i++) {
-            if (tagFilterData.indexOf(tagsList[i]) > -1) {
-                updatedTagFilter = tagFilterData.filter(filter => filter !== tagsList[i]);
-            }
-        }
-        dispatch(tagFilterChanged(updatedTagFilter));
-    }
+    //     for (var i = 0; i < tagsList.length; i++) {
+    //         if (tagFilterData.indexOf(tagsList[i]) > -1) {
+    //             updatedTagFilter = tagFilterData.filter(filter => filter !== tagsList[i]);
+    //         }
+    //     }
+    //     dispatch(tagFilterChanged(updatedTagFilter));
+    // }
 
 
     if (isLoading) {
@@ -218,7 +218,7 @@ const EditItem = () => {
             <div className="flex flex-col h-dvh">
                 <div className="flex flex-row justify-between items-center">
                     <div className="flex justify-between mt-2">
-                        <div id={`${noteId}_s`} className="invisible text-xs text-slate-500 pl-2">All changes saved</div>
+                        <div id={`${noteId}_s`} className="text-xs text-slate-500 pl-2">{isUpdateNoteLoading ? 'All changes saved' : null}</div>
                     </div>
                     <div className="relative self-end">
                         <EllipsisVerticalIcon onClick={hideShowSettings} className="w-6 h-6 text-slate-600 dark:text-mainColor cursor-pointer rounded-md hover:bg-slate-100 dark:hover:bg-hoverColor"/>

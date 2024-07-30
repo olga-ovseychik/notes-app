@@ -98,7 +98,6 @@ const Profile = () => {
 
     function finishSubmit() {
         try {
-            console.log('UPDATE')
             updateUserProfile({ id, firstName, lastName, email, password });
         } catch (error) {
             console.log(error?.data?.message || error.error);
