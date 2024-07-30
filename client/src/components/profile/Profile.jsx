@@ -19,7 +19,7 @@ const Profile = () => {
             refetchOnFocus: true,
             refetchOnMountOrArgChange: true,
     });
-    const [updateUserProfile, {isLoading}] = useUpdateUserProfileMutation();
+    const [updateUserProfile, {isLoading, isSuccess: isUpdateProfileSuccess}] = useUpdateUserProfileMutation();
     const [deleteUser] = useDeleteUserMutation();
     const [firstName, setFirstName] = useState(user?.firstName)
     const [lastName, setLastName] = useState(user?.lastName)
@@ -172,7 +172,7 @@ const Profile = () => {
         <div className='flex justify-end sm:gap-6 xs:flex-col xs:gap-3'>
             <button 
                 type='submit'
-                className='sm:w-1/4 xs:w-full h-10 rounded-md bg-mainColor hover:bg-amber-200 text-textColor shadow-lg self-end'>{isLoading ? 'Loading...' : 'Save'}</button>
+                className='sm:w-1/4 xs:w-full h-10 rounded-md bg-mainColor hover:bg-amber-200 text-textColor shadow-lg self-end'>{isLoading ? 'Loading...' : null} {isUpdateProfileSuccess ? 'Save' : null}</button>
             <button onClick={onAccountDelete} className='sm:w-1/4 xs:w-full h-10 rounded-md bg-red-100 hover:bg-red-500 text-red-500 hover:text-white shadow-lg self-end'>Delete account</button>
         </div>
     </form>
