@@ -36,6 +36,7 @@ const Profile = () => {
             console.log('SUBMITTING: ', submitting)
             console.log('call finishSubmit()')
             finishSubmit();
+            setSubmitting(false);
         }
     }, [submitting, errors, user]);
 
