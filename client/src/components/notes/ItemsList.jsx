@@ -250,7 +250,7 @@ const ItemsList = () => {
 
             <p id='search-result' className={`ml-2 my-4 text-slate-600 hidden dark:text-mainColor`}>{searchQuery.length > 0 && filteredNotes.length > 0  ? `Search result: ${filteredNotes?.length}` : searchQuery.length > 0 ? 'No such notes' : null}</p>
             <div className='ml-2 mt-2'>
-            {tagFilter?.map(tag => {
+            {/* {tagFilter?.map(tag => {
                 return (
                     <div className="inline-block relative" key={tag}>
                         <span className="bg-mainColor text-textColor text-xs font-medium me-2 px-2.5 py-0.5 rounded text-center cursor-pointer">
@@ -262,7 +262,7 @@ const ItemsList = () => {
                     </div>
                     )
                 })
-            } 
+            }  */}
             </div>
             {isLoading
                 ? <div className="flex justify-center items-center"><Spinner /></div> 
