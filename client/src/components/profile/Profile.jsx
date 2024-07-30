@@ -16,7 +16,7 @@ const Profile = () => {
             isSuccess, 
             isError,
             error } = useGetUserQuery(id, {
-            refetchOnFocus: true,
+            // refetchOnFocus: true,
             refetchOnMountOrArgChange: true,
     });
     const [updateUserProfile, {isLoading, isSuccess: isUpdateProfileSuccess}] = useUpdateUserProfileMutation();
@@ -97,6 +97,7 @@ const Profile = () => {
 
     function finishSubmit() {
         try {
+            console.log('UPDATE')
             updateUserProfile({ id, firstName, lastName, email, password });
         } catch (error) {
             console.log(error?.data?.message || error.error);
