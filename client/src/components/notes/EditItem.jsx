@@ -282,8 +282,7 @@ const EditItem = () => {
                                 onKeyDown={handleTodoKeyDown}
                                 onBlur={handleOnBlurTodo}
                                 value={todo}
-                                placeholder="+ item"
-                                disabled={isUpdateNoteLoading}/>
+                                placeholder="+ item"/>
                         </div> 
                     </> 
                     : <textarea 
