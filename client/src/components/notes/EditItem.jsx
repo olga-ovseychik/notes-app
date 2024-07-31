@@ -222,7 +222,7 @@ const EditItem = () => {
             <div className="flex flex-col h-dvh">
                 <div className="flex flex-row justify-between items-center">
                     <div className="flex justify-between mt-2">
-                        <div id={`${noteId}_s`} className="text-xs text-slate-500 pl-2">{isUpdateNoteLoading ? 'All changes saved' : null}</div>
+                        <div id={`${noteId}_s`} className="text-xs text-slate-500 pl-2">{isUpdateNoteSuccess ? 'All changes saved' : null}{isUpdateNoteLoading ? 'Saving' : null}</div>
                     </div>
                     <div className="relative self-end">
                         <EllipsisVerticalIcon onClick={hideShowSettings} className="w-6 h-6 text-slate-600 dark:text-mainColor cursor-pointer rounded-md hover:bg-slate-100 dark:hover:bg-hoverColor"/>
@@ -284,7 +284,8 @@ const EditItem = () => {
                                 onKeyDown={handleTodoKeyDown}
                                 onBlur={handleOnBlurTodo}
                                 value={todo}
-                                placeholder="+ item"/>
+                                placeholder="+ item"
+                                disabled={isUpdateNoteLoading}/>
                         </div> 
                     </> 
                     : <textarea 
@@ -296,8 +297,7 @@ const EditItem = () => {
                         onChange={handleOnChange}
                         onBlur={handleEditNote}
                         className="focus:outline-none focus:bg-light rounded-md p-2 bg-inherit text-textColor text-lg resize-none h-2/3 mt-1 dark:focus:bg-hoverColor dark:text-semiLight placeholder:italic"
-                        onKeyDown={handleKeyDown}
-                        disabled={isUpdateNoteLoading}/>
+                        onKeyDown={handleKeyDown}/>
                 }
             </div>
             <div>
