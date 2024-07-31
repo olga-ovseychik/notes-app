@@ -131,11 +131,9 @@ const EditItem = () => {
         if (todo != '' && !isWhitespaceString(todo)) {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
-            if (isUpdateNoteSuccess) {
-                console.log('success from addTodo')
-                todoInputRef.current.focus();
-            }
+            
             setTodo('');
+            todoInputRef?.current.focus();
         } else {
             setTodo('');
         }
@@ -286,8 +284,7 @@ const EditItem = () => {
                                 onKeyDown={handleTodoKeyDown}
                                 onBlur={handleOnBlurTodo}
                                 value={todo}
-                                placeholder="+ item"
-                                disabled={isUpdateNoteLoading}/>
+                                placeholder="+ item"/>
                         </div> 
                     </> 
                     : <textarea 
