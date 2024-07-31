@@ -90,6 +90,15 @@ const SideNav = () => {
                                                     to={`/register`}
                                                     className={`block hover:bg-light text-textColor cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Sign up
                                                 </Link>
+                                                {/* xs */}
+                                                <Link
+                                                    to={`/login`}
+                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-arrow-right-to-bracket"></i>
+                                                </Link>
+                                                <Link
+                                                    to={`/register`}
+                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-user-plus"></i>
+                                                </Link>
                                             </>
                                              :
                                              <>

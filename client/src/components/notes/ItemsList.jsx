@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import Mark from "mark.js";
 import { useGetNotesQuery } from "../../app/services/notesApiSlice";
 import { PencilSquareIcon } from '@heroicons/react/24/outline';
-import { XCircleIcon } from '@heroicons/react/24/solid';
 import { useAddNoteMutation } from '../../app/services/notesApiSlice';
 import Item from './Item';
 import Spinner from '../Spinner';
