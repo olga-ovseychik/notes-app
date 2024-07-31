@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useCallback } from "react";
+import { useState, useRef, useMemo, useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { XCircleIcon } from '@heroicons/react/24/solid';
@@ -35,6 +35,12 @@ const EditItem = () => {
     const settingsList = useRef(null);
     const textarea = useRef(null);
     const todoInputRef = useRef(null);
+
+    useEffect(() => {
+        if (isUpdateNoteSuccess) {
+            todoInputRef.current.focus()
+        }
+    }, [isUpdateNoteSuccess])
 
     const addTag = useCallback(
         (tag) => () => {
@@ -283,8 +289,7 @@ const EditItem = () => {
                                 onBlur={handleOnBlurTodo}
                                 value={todo}
                                 placeholder="+ item"
-                                disabled={isUpdateNoteLoading}
-                                autoFocus={isUpdateNoteSuccess}/>
+                                disabled={isUpdateNoteLoading}/>
                         </div> 
                     </> 
                     : <textarea 
