@@ -52,12 +52,6 @@ const EditItem = () => {
         setTodoList(note?.todos)
     }, [note]);
 
-    useMemo(() => {
-        if (isUpdateNoteSuccess) {
-            todoInputRef?.current.focus();
-        }
-    }, [isUpdateNoteSuccess])
-
     const updateNote = () => {
         if (noteText != note?.text || noteTitle != note?.title) {
             editNote({ id: noteId, text: noteText, title: noteTitle });
@@ -289,7 +283,8 @@ const EditItem = () => {
                                 onBlur={handleOnBlurTodo}
                                 value={todo}
                                 placeholder="+ item"
-                                disabled={isUpdateNoteLoading}/>
+                                disabled={isUpdateNoteLoading}
+                                autoFocus={isUpdateNoteSuccess}/>
                         </div> 
                     </> 
                     : <textarea 
