@@ -132,6 +132,7 @@ const EditItem = () => {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
             if (isUpdateNoteSuccess) {
+                console.log('success from addTodo')
                 todoInputRef.current.focus();
             }
             setTodo('');
