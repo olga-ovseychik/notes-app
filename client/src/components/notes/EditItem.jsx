@@ -113,9 +113,6 @@ const EditItem = () => {
     const handleOnBlurTodo = (e) => {
         e.preventDefault();
         addTodo();
-
-        console.log('onBlur: ', isWhitespaceString(todo))
-
         if (todo != '' && !isWhitespaceString(todo)) { 
             todoInputRef?.current.focus();
         } else {
@@ -131,8 +128,6 @@ const EditItem = () => {
     };
 
     function addTodo() {
-        console.log('add: ', isWhitespaceString(todo))
-
         if (todo != '' && !isWhitespaceString(todo)) {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
@@ -287,7 +282,8 @@ const EditItem = () => {
                                 onKeyDown={handleTodoKeyDown}
                                 onBlur={handleOnBlurTodo}
                                 value={todo}
-                                placeholder="+ item"/>
+                                placeholder="+ item"
+                                disabled={isUpdateNoteLoading}/>
                         </div> 
                     </> 
                     : <textarea 
