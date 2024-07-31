@@ -126,7 +126,9 @@ const EditItem = () => {
 
         if (todo != '' && !isWhitespaceString(todo)) { 
             todoInputRef?.current.focus();
-        }   
+        } else {
+            setTodo('');
+        }
     }
 
     const handleTodoKeyDown = (e) => {
@@ -142,6 +144,8 @@ const EditItem = () => {
         if (todo != '' && !isWhitespaceString(todo)) {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
+            setTodo('');
+        } else {
             setTodo('');
         }
     }
