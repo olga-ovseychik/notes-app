@@ -13,7 +13,7 @@ const EditItem = () => {
     const { noteId } = useParams();
     const {data: note, isLoading} = useGetNoteQuery(noteId);
 
-    const [editNote, {isLoading: isUpdateNoteLoading}] = useEditNoteMutation();
+    const [editNote, {isLoading: isUpdateNoteLoading, isSuccess: isUpdateNoteSuccess}] = useEditNoteMutation();
     const [deleteNote] = useDeleteNoteMutation();
     const activeFilter = useSelector(state => state.filters.activeFilter);
     const tagFilter = useSelector(state => state.tags.tagFilter);
@@ -131,6 +131,9 @@ const EditItem = () => {
         if (todo != '' && !isWhitespaceString(todo)) {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
+            if (isUpdateNoteSuccess) {
+                todoInputRef.current.focus();
+            }
             setTodo('');
         } else {
             setTodo('');
@@ -282,7 +285,8 @@ const EditItem = () => {
                                 onKeyDown={handleTodoKeyDown}
                                 onBlur={handleOnBlurTodo}
                                 value={todo}
-                                placeholder="+ item"/>
+                                placeholder="+ item"
+                                disabled={isUpdateNoteLoading}/>
                         </div> 
                     </> 
                     : <textarea 
