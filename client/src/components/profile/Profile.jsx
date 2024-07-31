@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { EyeIcon } from '@heroicons/react/24/outline';
 import { EyeSlashIcon } from '@heroicons/react/24/outline';
 import { useGetUserQuery, useUpdateUserProfileMutation, useDeleteUserMutation } from '../../app/services/usersApiSlice';
+import { useLogoutMutation } from '../../app/services/authApiSlice';
 import { selectUserInfo } from '../../app/services/authSlice';
 import Spinner from '../Spinner';
 
@@ -22,6 +23,8 @@ const Profile = () => {
     });
     const [updateUserProfile, {isLoading}] = useUpdateUserProfileMutation();
     const [deleteUser] = useDeleteUserMutation();
+    const [logout] = useLogoutMutation();
+
     const [firstName, setFirstName] = useState(user?.firstName)
     const [lastName, setLastName] = useState(user?.lastName)
     const [email, setEmail] = useState(user?.email) 
@@ -92,6 +95,7 @@ const Profile = () => {
     const onAccountDelete = (e) => {
         e.preventDefault();
         if (confirm('Are you sure you want to delete your account?') == true) {
+            logout();
             deleteUser(id);
             navigate('/login');
         } else null;
