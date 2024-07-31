@@ -80,7 +80,7 @@ const Profile = () => {
             must be at least 8 characters long.`;
         }
         if (password !== confirmPassword) {
-            errors.confirmPassword = 'Passwords does not match.'
+            errors.confirmPassword = 'Passwords does not match'
         }
         return errors;
       };

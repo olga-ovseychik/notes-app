@@ -200,7 +200,8 @@ const ItemsList = () => {
                         : activeFilter == 'tag' ? <i className="fa-solid fa-tags mr-2"></i>
                         : <i className="fa-regular fa-note-sticky font-light mr-2"></i> 
                     }
-                    {`${activeFilter == 'task' ? `Tasks <i className="fa-solid fa-chevron-down text-sm"></i>` : activeFilter == 'flagged' ? 'Flagged' : activeFilter == 'recent' ? 'Today' : activeFilter == 'tag' ? 'Tags' : 'Notes'}`}
+                    {`${activeFilter == 'task' ? `Tasks` : activeFilter == 'flagged' ? 'Flagged' : activeFilter == 'recent' ? 'Today' : activeFilter == 'tag' ? 'Tags' : 'Notes'}`}
+                    {activeFilter == 'task' || activeFilter == 'untagged' ? <i className="fa-solid fa-chevron-down text-sm"></i> : null}
                     <ul 
                         ref={dropdown}
                         className="hidden absolute top-6 min-w-20 text-sm font-normal rounded-md p-2 mt-2 bg-white shadow-md dark:bg-hoverColor">
