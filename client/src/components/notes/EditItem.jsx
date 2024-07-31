@@ -296,7 +296,8 @@ const EditItem = () => {
                         onChange={handleOnChange}
                         onBlur={handleEditNote}
                         className="focus:outline-none focus:bg-light rounded-md p-2 bg-inherit text-textColor text-lg resize-none h-2/3 mt-1 dark:focus:bg-hoverColor dark:text-semiLight placeholder:italic"
-                        onKeyDown={handleKeyDown}/>
+                        onKeyDown={handleKeyDown}
+                        disabled={isUpdateNoteLoading}/>
                 }
             </div>
             <div>
