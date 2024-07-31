@@ -134,7 +134,8 @@ const EditItem = () => {
     };
 
     function addTodo() {
-        if (todo != '') {
+        const isWhitespaceString = str => !str.replace(/\s/g, '').length;
+        if (todo != '' || !isWhitespaceString(todo)) {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
             setTodo('');
