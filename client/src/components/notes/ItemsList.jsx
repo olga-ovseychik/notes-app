@@ -200,7 +200,7 @@ const ItemsList = () => {
                         : activeFilter == 'tag' ? <i className="fa-solid fa-tags mr-2"></i>
                         : <i className="fa-regular fa-note-sticky font-light mr-2"></i> 
                     }
-                    {`${activeFilter == 'task' ? 'Tasks' : activeFilter == 'flagged' ? 'Flagged' : activeFilter == 'recent' ? 'Today' : activeFilter == 'tag' ? 'Tags' : 'Notes'}`} <i className="fa-solid fa-chevron-down text-sm"></i>
+                    {`${activeFilter == 'task' ? `Tasks <i className="fa-solid fa-chevron-down text-sm"></i>` : activeFilter == 'flagged' ? 'Flagged' : activeFilter == 'recent' ? 'Today' : activeFilter == 'tag' ? 'Tags' : 'Notes'}`}
                     <ul 
                         ref={dropdown}
                         className="hidden absolute top-6 min-w-20 text-sm font-normal rounded-md p-2 mt-2 bg-white shadow-md dark:bg-hoverColor">
@@ -229,7 +229,6 @@ const ItemsList = () => {
                     </i>
             </div>
 
-            {/* TAG LIST  */}
             <ul className="hidden ml-2 mt-2 max-h-32 p-2 shadow-md rounded-md bg-light text-textColor flex-col overflow-auto scroll-smooth" 
                 ref={tagListElement}
                 id="tagListElement">

@@ -121,7 +121,7 @@ const EditItem = () => {
     const handleOnBlurTodo = (e) => {
         e.preventDefault();
         addTodo();
-        if (todo != '') { 
+        if (todo != '' || !isWhitespaceString(todo)) { 
             todoInputRef?.current.focus();
         }   
     }
@@ -134,7 +134,6 @@ const EditItem = () => {
     };
 
     function addTodo() {
-        const isWhitespaceString = str => !str.replace(/\s/g, '').length;
         if (todo != '' || !isWhitespaceString(todo)) {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
@@ -194,6 +193,10 @@ const EditItem = () => {
     function checkCompletedTodos() {
         return note.todos.some(todo => todo.completed);
     }
+
+    function isWhitespaceString (str) {
+        return !str.replace(/\s/g, '').length;
+    } 
 
     // function filterTagList() {
     //     let tagFilterData = [...tagFilter];

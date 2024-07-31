@@ -16,23 +16,6 @@ const Filters = () => {
     const tagFilter = useSelector(state => state.tags.tagFilter);
     const dispatch = useDispatch();
     const dropdown = useRef();
-    const dropdownTags = useRef();
-    var tagList = [];
-
-    // notes?.forEach(item => {
-    //     if (item.tags.length > 0) {
-    //         item.tags.forEach(tag => {
-    //             let checked = false;
-    //             for (let i = 0; i < tagFilter.length; i++) {
-    //                 if (tag == tagFilter[i]) {
-    //                     checked = true;
-    //                 } 
-    //             }
-    //             tagList.push({tagName: tag, checked});
-    //         });     
-    //     }
-    //     tagList = [...new Map(tagList.map(tag => [tag['tagName'], tag])).values()];
-    // });
 
     useEffect(() => {
         // dropdown.current.classList.add('flex');
@@ -45,35 +28,9 @@ const Filters = () => {
         dispatch(tagFilterChanged(tagFilter.filter(tag => tag !== removedTag))); 
     }, []);
 
-    // const addTag = useCallback(
-    //     (tag) => () => {
-    //     let item = document.querySelector(`#tag_${tag}`) 
-    //     if (!item.checked) {
-    //         handleRemoveTagFilter(tag);
-    //     } else {
-    //         if (!tagFilter?.includes(tag)) {
-    //             dispatch(activeFilterChanged('tag'))
-    //             dispatch(tagFilterChanged([...tagFilter, tag]))
-    //         }
-    //     }},
-    //     [tagFilter, dispatch, handleRemoveTagFilter]
-    // );
-
     const handleFilterChanged = (name) => {
-        // if (name == 'tag') hideTagDropdown();
         dispatch(activeFilterChanged(name));
     }
-
-    // function hideTagDropdown() {
-    //     if (dropdownTags.current.classList.contains('hidden')) {
-    //         dropdownTags.current.classList.add('visible');
-    //         dropdownTags.current.classList.add('flex');
-    //         dropdownTags.current.classList.remove('hidden');
-    //     } else {
-    //         dropdownTags.current.classList.add('hidden');
-    //         dropdownTags.current.classList.remove('visible');
-    //     } 
-    // }
 
     const handleOnCLick = () => {
         if (dropdown.current.classList.contains('hidden')) {
@@ -139,29 +96,6 @@ const Filters = () => {
             <ul className="hidden w-full xs:pl-0 lg:pl-6 flex-col justify-start xs:justify-center xs:items-center items-start gap-1" ref={dropdown}>
                 {renderedFilters}
             </ul>
-
-            {/* <ul className="hidden min-w-40 max-w-44 max-h-32 absolute top-96 xs:left-2 lg:left-6 ml-8 p-2 shadow-md rounded-md bg-hoverColor text-semiLight flex-col overflow-auto scroll-smooth z-50" 
-                ref={dropdownTags}
-                id="dropdownTags">
-                {tagList.length > 0 
-                    ? tagList.map(tag => {
-                        return (
-                            <div 
-                                className={`flex items-center gap-2 min-h-10 max-h-16 lg:text-xs hover:bg-mainColor cursor-pointer hover:text-bgColor p-1 rounded-md break-all`} 
-                                key={`${tag.tagName}`+2}>
-                                <input 
-                                    id={`tag_${tag.tagName}`}
-                                    className="ml-2 accent-mainColor h-4 w-4"
-                                    type="checkbox" 
-                                    checked={tag.checked}
-                                    onChange={addTag(tag.tagName)}/>
-                                <div className="text-lg">{tag.tagName}</div>
-                            </div> 
-                        )
-                    }) 
-                : 'Tag list is empty'
-                }
-            </ul> */}
         </div>
     )
 }
