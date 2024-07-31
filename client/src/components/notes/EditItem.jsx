@@ -36,12 +36,6 @@ const EditItem = () => {
     const textarea = useRef(null);
     const todoInputRef = useRef(null);
 
-    useEffect(() => {
-        if (isUpdateNoteSuccess) {
-            todoInputRef.current.focus()
-        }
-    }, [isUpdateNoteSuccess])
-
     const addTag = useCallback(
         (tag) => () => {
             if (!tagFilter?.includes(tag)) {
@@ -288,8 +282,7 @@ const EditItem = () => {
                                 onKeyDown={handleTodoKeyDown}
                                 onBlur={handleOnBlurTodo}
                                 value={todo}
-                                placeholder="+ item"
-                                disabled={isUpdateNoteLoading}/>
+                                placeholder="+ item"/>
                         </div> 
                     </> 
                     : <textarea 
