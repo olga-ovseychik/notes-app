@@ -13,7 +13,7 @@ const EditItem = () => {
     const { noteId } = useParams();
     const {data: note, isLoading} = useGetNoteQuery(noteId);
 
-    const [editNote, {isUninitialized, isLoading: isUpdateNoteLoading, isSuccess: isUpdateNoteSuccess}] = useEditNoteMutation();
+    const [editNote, {isUninitialized, isLoading: isUpdateNoteLoading, isSuccess: isUpdateNoteSuccess }] = useEditNoteMutation();
     const [deleteNote] = useDeleteNoteMutation();
     const activeFilter = useSelector(state => state.filters.activeFilter);
     const tagFilter = useSelector(state => state.tags.tagFilter);
@@ -220,7 +220,7 @@ const EditItem = () => {
             <div className="flex flex-col h-dvh">
                 <div className="flex flex-row justify-between items-center">
                     <div className="flex justify-between mt-2">
-                        <div id={`${noteId}_s`} className="text-xs text-slate-500 pl-2">{isUpdateNoteLoading ? 'Saving' : null}{isUpdateNoteSuccess ? 'All changes saved' : null}{isUninitialized ? '' : null}</div>
+                        <div id={`${noteId}_s`} className="text-xs text-slate-500 pl-2">{isUpdateNoteLoading ? 'Saving' : null}</div>
                     </div>
                     <div className="relative self-end">
                         <EllipsisVerticalIcon onClick={hideShowSettings} className="w-6 h-6 text-slate-600 dark:text-mainColor cursor-pointer rounded-md hover:bg-slate-100 dark:hover:bg-hoverColor"/>
