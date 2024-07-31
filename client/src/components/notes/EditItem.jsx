@@ -52,6 +52,12 @@ const EditItem = () => {
         setTodoList(note?.todos)
     }, [note]);
 
+    useMemo(() => {
+        if (isUpdateNoteSuccess) {
+            todoInputRef?.current.focus();
+        }
+    }, [isUpdateNoteSuccess])
+
     const updateNote = () => {
         if (noteText != note?.text || noteTitle != note?.title) {
             editNote({ id: noteId, text: noteText, title: noteTitle });
@@ -131,9 +137,7 @@ const EditItem = () => {
         if (todo != '' && !isWhitespaceString(todo)) {
             setTodoList([...note.todos, {text: todo, completed: false}]);
             editNote({ id: noteId, task: true, todos: [...note.todos, {text: todo, completed: false}] });
-            
             setTodo('');
-            todoInputRef?.current.focus();
         } else {
             setTodo('');
         }
@@ -222,7 +226,7 @@ const EditItem = () => {
             <div className="flex flex-col h-dvh">
                 <div className="flex flex-row justify-between items-center">
                     <div className="flex justify-between mt-2">
-                        <div id={`${noteId}_s`} className="text-xs text-slate-500 pl-2">{isUpdateNoteSuccess ? 'All changes saved' : null}{isUpdateNoteLoading ? 'Saving' : null}</div>
+                        <div id={`${noteId}_s`} className="text-xs text-slate-500 pl-2">{isUpdateNoteLoading ? 'Saving' : isUpdateNoteSuccess ? 'All changes saved' : null}</div>
                     </div>
                     <div className="relative self-end">
                         <EllipsisVerticalIcon onClick={hideShowSettings} className="w-6 h-6 text-slate-600 dark:text-mainColor cursor-pointer rounded-md hover:bg-slate-100 dark:hover:bg-hoverColor"/>
