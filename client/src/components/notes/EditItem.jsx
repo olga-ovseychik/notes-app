@@ -32,7 +32,6 @@ const EditItem = () => {
     const divSaveInfo = document.getElementById(`${noteId}_s`);
     const input = document.getElementById(`$_${noteId}`); 
 
-    // const tagInput = useRef(null);
     const settingsList = useRef(null);
     const textarea = useRef(null);
     const todoInputRef = useRef(null);
@@ -59,13 +58,6 @@ const EditItem = () => {
 
             divSaveInfo.classList.remove('invisible');
             divSaveInfo.classList.add('visible');
-            
-            console.log('update in editItem')
-            
-            // setTimeout(() => {
-            //     divSaveInfo.classList.remove('visible');
-            //     divSaveInfo.classList.add('invisible');
-            // }, 2000);
         }   
     };
 
@@ -154,13 +146,13 @@ const EditItem = () => {
         let todoInput = document.getElementById(`todo_input_${id}`);
         let todoCheck = document.getElementById(`todo-checkbox_${id}`);
         if (todoInput.classList.contains('text-semiLight')) {
-            let updatedArr = note.todos.map(item => (item._id === id ? {...item, completed: false} : item));
+            let updatedArr = note?.todos.map(item => (item._id === id ? {...item, completed: false} : item));
             setTodoList(updatedArr);
             editNote({ id: noteId, todos: updatedArr });
             todoCheck.checked = false;
             todoInput.classList.remove('text-semiLight');
         } else {
-            let updatedArr = note.todos.map(item => (item._id === id ? {...item, completed: true} : item))
+            let updatedArr = note?.todos.map(item => (item._id === id ? {...item, completed: true} : item))
             setTodoList(updatedArr);
             editNote({ id: noteId, todos: updatedArr });
             todoCheck.checked = true;
@@ -188,19 +180,19 @@ const EditItem = () => {
     };
 
     const handleOnDeleteTodo = (deletedTodo) => {
-        let modifiedTodoArr = note.todos.filter(item => item.text != deletedTodo);
+        let modifiedTodoArr = note?.todos.filter(item => item.text != deletedTodo);
         setTodoList(modifiedTodoArr);
         editNote({ id: noteId, todos: [...modifiedTodoArr] });
     };
 
     const handleOnDeleteCompletedTodos = () => {
-        let modifiedTodoArr = note.todos.filter(item => !item.completed);
+        let modifiedTodoArr = note?.todos.filter(item => !item.completed);
         setTodoList(modifiedTodoArr);
         editNote({ id: noteId, todos: [...modifiedTodoArr] });
     };
 
     function checkCompletedTodos() {
-        return note.todos.some(todo => todo.completed);
+        return note?.todos.some(todo => todo.completed);
     }
 
     function isWhitespaceString (str) {
@@ -280,7 +272,7 @@ const EditItem = () => {
                         })
                     }
                 </div>
-                {(activeFilter == 'task' && note?.todos.length == 0) || (note?.task && (note.todos.length > 0 || note?.todos.length == 0)) ? 
+                {(activeFilter == 'task' && note?.todos.length == 0) || (note?.task && (note?.todos.length > 0 || note?.todos.length == 0)) ? 
                     <>
                         <div className="flex items-center gap-2 min-h-10 max-h-16">
                             <input 
