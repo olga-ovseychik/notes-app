@@ -166,8 +166,11 @@ function Login() {
                         </ul>
                     </div>
                     
-                    <a className="flex self-end text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
-                    <a className="flex self-end text-xs text-zinc-500" href="https://icons8.com/">Icons by Icons8</a>
+                    <div className="self-end">
+                        <a className="flex self-end text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
+                        <a className="flex self-end text-xs text-zinc-500" href="https://icons8.com/">Icons by Icons8</a>
+                    </div>
+
                 </div>
             </div>
         </div>
