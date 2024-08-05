@@ -48,7 +48,7 @@ function Login() {
         if (token && !user?.roles.includes('Guest')) {
 			navigate('/notes');
 		}
-        if (Object.keys(errors).length === 0 && submitting) {
+        if (Object.keys(errors).length === 0 && submitting && !user?.roles.includes('Guest')) {
             finishSubmit();
         }
     }, [errors, finishSubmit, submitting]);
