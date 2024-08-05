@@ -36,7 +36,7 @@ const SideNav = () => {
         }
     }
 
-    if (isLoading) return <Load />
+    // if (isLoading) return <Load />
     if (isError) return <p>Error: {error.data?.message}</p>
 
     return (

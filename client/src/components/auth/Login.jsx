@@ -151,7 +151,6 @@ function Login() {
                     </button>
                 : <Link to='/notes' className="self-center w-full text-center text-darkColor border hover:border-darkColor rounded-md p-2">You're already logged in as a guest</Link>}
 
-                <a className="flex self-end text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
             </form>
 
             <div className={`col-span-8 xs:hidden lg:flex bg-bgLogin bg-cover`}>
@@ -165,6 +164,9 @@ function Login() {
                             <li className="whitespace-break-spaces"><i className="fa-regular fa-square-check"></i>   Create your todo-lists</li>
                             <li className="whitespace-break-spaces"><i className="fa-regular fa-face-smile"></i>   This app will make sure you don't have to keep everything in your mind</li>
                         </ul>
+
+                        <a className="flex self-end text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
+                        <a className="flex self-end text-xs text-zinc-500" href="https://icons8.com/">Icons by Icons8</a>
                     </div>
                 </div>
             </div>
