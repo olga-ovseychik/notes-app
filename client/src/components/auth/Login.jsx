@@ -140,7 +140,7 @@ function Login() {
                 {!user?.roles.includes('Guest') ?
                     <button 
                         onClick={handleGuestLogin}
-                        className={`w-full h-10 border border-lime-200 hover:bg-lime-200 text-textColor rounded-md disabled:opacity-75`}>
+                        className={`w-full h-10 border border-lime-200 hover:bg-lime-200 text-textColor dark:text-semiLight rounded-md disabled:opacity-75`}>
                         Log in as a Guest
                     </button>
                 : <Link to='/notes' className="self-center w-full text-center text-darkColor border hover:border-darkColor rounded-md p-2">You're already logged in as a guest</Link>}
