@@ -74,50 +74,50 @@ const SideNav = () => {
                                     </div>
                                     
                                     <ul ref={dropdown}
-                                        className="hidden absolute top-12 left-0 flex-col lg:justify-start lg:items-start xs:justify-center xs:gap-2 lg:gap-0 place-items-center text-base xs:w-full lg:max-w-28 border rounded-md p-2 z-100 bg-white dark:bg-hoverColor dark:text-semiLight shadow-xl focus:outline-none"
+                                        className="hidden absolute top-12 left-0 flex-col lg:justify-start lg:items-start xs:justify-center xs:gap-2 lg:gap-0 place-items-center text-base xs:w-full lg:max-w-28 border dark:border-none rounded-md p-2 z-100 bg-white dark:bg-hoverColor shadow-xl focus:outline-none"
                                         onBlur={hideShowDropdown}
                                         tabIndex={-1}>
                                         {/* lg */}
-                                        <p className="text-xs p-1 text-slate-400 mb-2 xs:hidden lg:block">Account</p>
+                                        <p className="text-xs p-1 text-slate-400 dark:text-semiLight mb-2 xs:hidden lg:block">Account</p>
                                         {
                                             user?.roles.includes('Guest') ?
                                             <>
                                                 <Link
                                                     to={`/login`}
-                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Log in
+                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Log in
                                                 </Link> 
                                                 <Link
                                                     to={`/register`}
-                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Sign up
+                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Sign up
                                                 </Link>
                                                 {/* xs */}
                                                 <Link
                                                     to={`/login`}
-                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-arrow-right-to-bracket"></i>
+                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-arrow-right-to-bracket"></i>
                                                 </Link>
                                                 <Link
                                                     to={`/register`}
-                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-user-plus"></i>
+                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-user-plus"></i>
                                                 </Link>
                                             </>
                                              :
                                              <>
                                                 <Link
                                                     to={`/profile`}
-                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Edit profile
+                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Edit profile
                                                 </Link>
                                                 <Link
                                                     onClick={logout}
-                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md p-1 font-semibold xs:hidden lg:block`}>Sign out
+                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md p-1 font-semibold xs:hidden lg:block`}>Sign out
                                                 </Link>
                                                 {/* xs */}
                                                 <Link
                                                     to={`/profile`}
-                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-user-pen"></i>
+                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-user-pen"></i>
                                                 </Link>
                                                 <Link
                                                     onClick={logout}
-                                                    className={`block hover:bg-light text-textColor cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-arrow-right-from-bracket"></i>
                                                 </Link>
                                              </>
                       
