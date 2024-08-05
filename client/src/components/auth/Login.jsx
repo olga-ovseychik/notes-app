@@ -166,7 +166,7 @@ function Login() {
                         </ul>
                     </div>
                 
-                    <div className="backdrop-blur-md bg-black/2 w-full h-16 p-16 absolute bottom-0 ">
+                    <div className="backdrop-blur-md bg-black/10 w-full h-16 p-16 absolute bottom-0">
                     <div className="flex flex-col items-center justify-center">
                         <a className="flex text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
                         <a className="flex text-xs text-zinc-500" href="https://icons8.com/">Icons by Icons8</a>
