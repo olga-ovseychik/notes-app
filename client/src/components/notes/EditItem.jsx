@@ -230,7 +230,7 @@ const EditItem = () => {
                             : <li className="hover:bg-slate-100 dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md p-1 text-slate-600" onClick={handleFlaggedNote}><i className="fa-regular fa-flag mr-2"></i>Add flag</li>}
                             <li className="hover:bg-slate-100 dark:hover:bg-zinc-600 cursor-pointer rounded-md p-1 text-red-500" onClick={() => handleRemoveNote(noteId)}><i className="fa-regular fa-trash-can mr-2"></i>Delete note</li>
                             {checkCompletedTodos() ?
-                            <li className="hover:bg-slate-100 cursor-pointer rounded-md p-1 text-amber-500" onClick={handleOnDeleteCompletedTodos}><i className="fa-regular fa-trash-can mr-2"></i>Delete completed tasks</li>
+                            <li className="hover:bg-slate-100 dark:hover:bg-zinc-600 cursor-pointer rounded-md p-1 text-amber-500" onClick={handleOnDeleteCompletedTodos}><i className="fa-regular fa-trash-can mr-2"></i>Delete completed tasks</li>
                             : null}    
                         </ul>
                     </div>

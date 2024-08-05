@@ -84,40 +84,40 @@ const SideNav = () => {
                                             <>
                                                 <Link
                                                     to={`/login`}
-                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Log in
+                                                    className={`block hover:bg-light text-textColor dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Log in
                                                 </Link> 
                                                 <Link
                                                     to={`/register`}
-                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Sign up
+                                                    className={`block hover:bg-light text-textColor dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Sign up
                                                 </Link>
                                                 {/* xs */}
                                                 <Link
                                                     to={`/login`}
-                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-arrow-right-to-bracket"></i>
+                                                    className={`block hover:bg-light text-textColor dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-arrow-right-to-bracket"></i>
                                                 </Link>
                                                 <Link
                                                     to={`/register`}
-                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-user-plus"></i>
+                                                    className={`block hover:bg-light text-textColor dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-user-plus"></i>
                                                 </Link>
                                             </>
                                              :
                                              <>
                                                 <Link
                                                     to={`/profile`}
-                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Edit profile
+                                                    className={`block hover:bg-light text-textColor dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md font-semibold p-1 xs:hidden lg:block`}>Edit profile
                                                 </Link>
                                                 <Link
                                                     onClick={logout}
-                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md p-1 font-semibold xs:hidden lg:block`}>Sign out
+                                                    className={`block hover:bg-light text-textColor dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md p-1 font-semibold xs:hidden lg:block`}>Sign out
                                                 </Link>
                                                 {/* xs */}
                                                 <Link
                                                     to={`/profile`}
-                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-user-pen"></i>
+                                                    className={`block hover:bg-light text-textColor dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md lg:hidden hover:text-hoverColor`}><i className="fa-solid fa-user-pen"></i>
                                                 </Link>
                                                 <Link
                                                     onClick={logout}
-                                                    className={`block hover:bg-light text-textColor dark:text-semiLight cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-arrow-right-from-bracket"></i>
+                                                    className={`block hover:bg-light text-textColor dark:hover:bg-zinc-600 dark:text-semiLight cursor-pointer rounded-md lg:hidden`}><i className="fa-solid fa-arrow-right-from-bracket"></i>
                                                 </Link>
                                              </>
                       
