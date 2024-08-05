@@ -1,8 +1,8 @@
 const Load = () => {
     return (
-        <div className={`flex bg-bgLogin bg-cover w-full h-full`}>
-        <div className="backdrop-blur-md bg-white/2 w-full flex flex-col justify-center items-center p-16">
-            <div className="flex flex-col items-start backdrop-blur-md bg-black/10 rounded-xl p-10 gap-10">
+        <div className={`flex bg-bgLogin bg-cover`}>
+        <div className="backdrop-blur-md bg-white/2 w-full h-full flex justify-center items-center">
+            {/* <div className="flex flex-col items-start backdrop-blur-md bg-black/10 rounded-xl p-10 gap-10"> */}
                 <div className="self-center inline-block">
                 <div
                      className={`z-10 inline-block h-32 w-32 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] text-mainColor`}
@@ -10,7 +10,7 @@ const Load = () => {
                      <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
                  </div>
                 </div>            
-            </div>
+            {/* </div> */}
         </div>
     </div>
         // <div className="bg-bgLogin bg-cover">
