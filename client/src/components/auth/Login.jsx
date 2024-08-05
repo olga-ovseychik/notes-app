@@ -95,7 +95,7 @@ function Login() {
 
     console.log('isLoginLoading: ', isLoginLoading )
     if (isLoginLoading) {
-        return <Load size={26} color={'mainColor'} />
+        return <Load size={28} color={'mainColor'} />
     }
 
     return (
