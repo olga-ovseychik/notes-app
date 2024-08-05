@@ -154,7 +154,7 @@ function Login() {
             </form>
 
             <div className={`col-span-8 xs:hidden lg:flex bg-bgLogin bg-cover`}>
-                <div className="backdrop-blur-md bg-white/2 w-full flex flex-col justify-center items-center p-16">
+                <div className="backdrop-blur-md bg-white/2 w-full flex flex-col justify-center items-center p-16 relative">
                     <div className="flex flex-col items-start backdrop-blur-md bg-black/10 rounded-xl p-10 gap-10">
                         <div className="self-center inline-block">
                             <h1 className="inline-block text-white xl:text-5xl lg:text-4xl">Welcome to the NotesApp</h1>
@@ -165,15 +165,11 @@ function Login() {
                             <li className="whitespace-break-spaces"><i className="fa-regular fa-face-smile"></i>   This app will make sure you don't have to keep everything in your mind</li>
                         </ul>
                     </div>
-                    
-                    <div className="self-end">
-                        <div className="flex flex-col items-center justify-center">
-                            <a className="flex text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
-                            <a className="flex text-xs text-zinc-500" href="https://icons8.com/">Icons by Icons8</a>
-                        </div>
+                
+                    <div className="absolute bottom-0 flex flex-col items-center justify-center">
+                        <a className="flex text-xs text-zinc-500" href="https://www.freepik.com/free-photo/hand-writing-notebook-close-up_14411988.htm#fromView=search&page=1&position=8&uuid=543fdaf8-fe20-4f4a-8447-6e6912b93f11">illustrations by freepik</a>
+                        <a className="flex text-xs text-zinc-500" href="https://icons8.com/">Icons by Icons8</a>
                     </div>
-
-
                 </div>
             </div>
         </div>
