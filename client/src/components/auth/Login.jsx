@@ -9,6 +9,7 @@ import { setCredentials } from "../../app/services/authSlice";
 import { selectToken } from "../../app/services/authSlice";
 import { useGetUserQuery } from "../../app/services/usersApiSlice";
 import { useRegisterNewUserMutation } from "../../app/services/usersApiSlice";
+import Load from "../Load";
 
 function Login() {
    
@@ -26,7 +27,7 @@ function Login() {
     const [showPass, setShowPass] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [login] = useLoginMutation();
+    const [login, {isLoading: isLoginLoading}] = useLoginMutation();
 
     const finishSubmit = useCallback(async () => {
         try {
@@ -92,6 +93,7 @@ function Login() {
         setSubmitting(true);
     }
 
+    isLoginLoading ? <Load /> : null
 
     return (
         <div className="grid grid-cols-12">
