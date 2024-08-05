@@ -4,8 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../app/services/authApiSlice";
 import { useGetUserQuery } from "../app/services/usersApiSlice";
 import Filters from "./Filters";
-const SideNav = () => { 
+import Load from "./Load";
 
+
+const SideNav = () => { 
     const navigate = useNavigate();
     const [logout, { isLoading, isSuccess, isError, error }] = useLogoutMutation();
     const userInfo = useSelector(state => state.auth.userInfo);
@@ -34,7 +36,7 @@ const SideNav = () => {
         }
     }
 
-    // if (isLoading) return <Load />
+    if (isLoading) return <Load />
     if (isError) return <p>Error: {error.data?.message}</p>
 
     return (

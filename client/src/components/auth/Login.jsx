@@ -73,6 +73,7 @@ function Login() {
 
       const handleGuestLogin = async() => {
         try {
+            setErrors({});
             setInputFields({ email: "", password: "" });
             let password = uuidv4();
             let email = `guest_${uuidv4()}`;
