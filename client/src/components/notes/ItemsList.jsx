@@ -228,7 +228,7 @@ const ItemsList = () => {
                         className={`fa-regular fa-circle-xmark pr-2 cursor-pointer dark:text-mainColor ${searchQuery.length > 0 ? 'visible' : 'invisible'}`}>
                     </i>
             </div>
-
+            
             <ul className="hidden ml-2 mt-2 max-h-32 p-2 shadow-md rounded-md bg-light text-textColor dark:bg-hoverColor dark:text-semiLight flex-col overflow-auto scroll-smooth" 
                 ref={tagListElement}
                 id="tagListElement">
