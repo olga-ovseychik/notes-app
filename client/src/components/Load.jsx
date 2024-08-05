@@ -1,7 +1,7 @@
 const Load = () => {
     return (
-        <div className={`flex bg-bgLogin bg-cover w-full h-full`}>
-        <div className="backdrop-blur-md bg-white/2 w-full h-full flex justify-center items-center">
+        <div className={`flex bg-bgLogin bg-cover w-full h-dvh`}>
+        <div className="backdrop-blur-md bg-white/4 w-full h-dvh flex justify-center items-center">
             {/* <div className="flex flex-col items-start backdrop-blur-md bg-black/10 rounded-xl p-10 gap-10"> */}
                 <div className="self-center">
                 <div
