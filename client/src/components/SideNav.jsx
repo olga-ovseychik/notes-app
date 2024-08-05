@@ -74,7 +74,7 @@ const SideNav = () => {
                                     </div>
                                     
                                     <ul ref={dropdown}
-                                        className="hidden absolute top-12 left-0 flex-col lg:justify-start lg:items-start xs:justify-center xs:gap-2 lg:gap-0 place-items-center text-base xs:w-full lg:max-w-28 border rounded-md p-2 z-100 bg-white shadow-xl focus:outline-none"
+                                        className="hidden absolute top-12 left-0 flex-col lg:justify-start lg:items-start xs:justify-center xs:gap-2 lg:gap-0 place-items-center text-base xs:w-full lg:max-w-28 border rounded-md p-2 z-100 bg-white dark:bg-hoverColor dark:text-semiLight shadow-xl focus:outline-none"
                                         onBlur={hideShowDropdown}
                                         tabIndex={-1}>
                                         {/* lg */}

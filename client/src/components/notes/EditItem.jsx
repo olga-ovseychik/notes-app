@@ -220,11 +220,11 @@ const EditItem = () => {
             <div className="flex flex-col h-dvh">
                 <div className="flex flex-row justify-between items-center">
                     <div className="flex justify-between mt-2">
-                        <div id={`${noteId}_s`} className="text-xs text-slate-500 pl-2">{isUpdateNoteLoading ? 'Saving' : null}</div>
+                        <div id={`${noteId}_s`} className="text-xs text-slate-500 dark:text-semiLight pl-2">{isUpdateNoteLoading ? 'Saving' : null}</div>
                     </div>
                     <div className="relative self-end">
                         <EllipsisVerticalIcon onClick={hideShowSettings} className="w-6 h-6 text-slate-600 dark:text-mainColor cursor-pointer rounded-md hover:bg-slate-100 dark:hover:bg-hoverColor"/>
-                        <ul ref={settingsList} className="hidden absolute right-0 text-sm min-w-36 border rounded-md p-2 mt-2 bg-white shadow-lg">
+                        <ul ref={settingsList} className="hidden absolute right-0 text-sm min-w-36 border rounded-md p-2 mt-2 bg-white dark:bg-hoverColor dark:text-semiLight shadow-lg">
                             {note?.flagged ? 
                             <li className="hover:bg-slate-100 cursor-pointer rounded-md p-1 text-slate-600" onClick={handleFlaggedNote}><i className="fa-solid fa-flag mr-2"></i>Remove flag</li>
                             : <li className="hover:bg-slate-100 cursor-pointer rounded-md p-1 text-slate-600" onClick={handleFlaggedNote}><i className="fa-regular fa-flag mr-2"></i>Add flag</li>}

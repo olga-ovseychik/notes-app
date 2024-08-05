@@ -229,7 +229,7 @@ const ItemsList = () => {
                     </i>
             </div>
 
-            <ul className="hidden ml-2 mt-2 max-h-32 p-2 shadow-md rounded-md bg-light dark:bg-hoverColor text-textColor dark:text-semiLight flex-col overflow-auto scroll-smooth" 
+            <ul className="hidden ml-2 mt-2 max-h-32 p-2 shadow-md rounded-md bg-light text-textColor dark:bg-hoverColor dark:text-semiLight flex-col overflow-auto scroll-smooth" 
                 ref={tagListElement}
                 id="tagListElement">
                 {tagList.length > 0 
