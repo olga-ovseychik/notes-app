@@ -48,7 +48,7 @@ function Login() {
         if (token && !user?.roles.includes('Guest')) {
 			navigate('/notes');
 		}
-        if (Object.keys(errors).length === 0 && submitting && !user?.roles.includes('Guest')) {
+        if (Object.keys(errors).length === 0 && submitting) {
             finishSubmit();
         }
     }, [errors, finishSubmit, submitting]);
@@ -93,7 +93,10 @@ function Login() {
         setSubmitting(true);
     }
 
-    isLoginLoading ? <Load /> : null
+    console.log('isLoginLoading: ', isLoginLoading )
+    if (isLoginLoading) {
+        return <Load />
+    }
 
     return (
         <div className="grid grid-cols-12">
