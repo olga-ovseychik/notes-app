@@ -106,7 +106,21 @@ const EditItem = () => {
 
     const onKeyDownTitle = (e) => {
         if (e.key === 'Enter') {
-            if (textarea.current) textarea?.current.focus();
+            // if (textarea.current) textarea?.current.focus();
+            let len = textarea.current.value.length;
+            console.log('VALUE: ', textarea.current.value)
+ 
+            // Mostly for Web Browsers
+            if (textarea.current.setSelectionRange) {
+                textarea.current.focus();
+                textarea.current.setSelectionRange(len, len);
+            } else if (textarea.current.createTextRange) {
+                let t = textarea.current.createTextRange();
+                t.collapse(true);
+                t.moveEnd('character', len);
+                t.moveStart('character', len);
+                t.select();
+            }
         }
     };
 
