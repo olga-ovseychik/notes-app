@@ -109,7 +109,7 @@ const EditItem = () => {
             if (textarea.current) {
                 textarea?.current.focus();
                 if (textarea.current.value.length > 0) {
-                    textarea.setSelectionRange(textarea.current.value.length, textarea.current.value.length)
+                    textarea.setSelectionRange(textarea.current.length, textarea.current.length)
                 } else {
                     textarea?.current.select()
                 } 
