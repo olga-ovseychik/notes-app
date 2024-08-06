@@ -106,14 +106,7 @@ const EditItem = () => {
 
     const onKeyDownTitle = (e) => {
         if (e.key === 'Enter') {
-            if (textarea.current) {
-                textarea?.current.focus();
-                if (textarea.current.length > 0) {
-                    textarea.setSelectionRange(textarea.current.length, textarea.current.length)
-                } else {
-                    textarea?.current.select()
-                } 
-            }
+            if (textarea.current) textarea?.current.focus();
         }
     };
 
