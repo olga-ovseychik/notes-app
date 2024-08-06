@@ -108,7 +108,11 @@ const EditItem = () => {
         if (e.key === 'Enter') {
             if (textarea.current) {
                 textarea?.current.focus();
-                textarea.setSelectionRange(textarea.current.value.length, textarea.current.value.length)
+                if (textarea.current.value.length > 0) {
+                    textarea.setSelectionRange(textarea.current.value.length, textarea.current.value.length)
+                } else {
+                    textarea?.current.select()
+                } 
             }
         }
     };
