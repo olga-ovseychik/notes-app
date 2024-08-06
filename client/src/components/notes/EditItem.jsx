@@ -29,7 +29,7 @@ const EditItem = () => {
     const [tag, setTag] = useState('');
     const [todo, setTodo] = useState('');    
 
-    const divSaveInfo = document.getElementById(`${noteId}_s`);
+    // const divSaveInfo = document.getElementById(`${noteId}_s`);
     const input = document.getElementById(`$_${noteId}`); 
 
     const settingsList = useRef(null);
@@ -56,8 +56,8 @@ const EditItem = () => {
         if (noteText != note?.text || noteTitle != note?.title) {
             editNote({ id: noteId, text: noteText, title: noteTitle });
 
-            divSaveInfo.classList.remove('invisible');
-            divSaveInfo.classList.add('visible');
+            // divSaveInfo.classList.remove('invisible');
+            // divSaveInfo.classList.add('visible');
         }   
     };
 
@@ -106,7 +106,10 @@ const EditItem = () => {
 
     const onKeyDownTitle = (e) => {
         if (e.key === 'Enter') {
-            if (textarea.current) textarea?.current.focus();
+            if (textarea.current) {
+                textarea?.current.focus();
+                textarea.setSelectionRange(textarea.current.value.length, textarea.current.value.length)
+            }
         }
     };
 
