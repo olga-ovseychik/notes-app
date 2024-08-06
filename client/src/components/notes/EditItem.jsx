@@ -108,7 +108,7 @@ const EditItem = () => {
         if (e.key === 'Enter') {
             // if (textarea.current) textarea?.current.focus();
             let len = textarea.current.value.length;
-            console.log('VALUE: ', textarea.current.value)
+            console.log('VALUE length: ', textarea.current.length)
  
             // Mostly for Web Browsers
             if (textarea.current.setSelectionRange) {
