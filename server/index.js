@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://notes-app-liard-mu.vercel.app", // for running the docker container: http://localhost:5173
     credentials: true
 };
 
