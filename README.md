@@ -7,7 +7,7 @@
   </a>
 
   <p align="center">
-    <a href="#">View Demo ➡️</a>
+    <a href="https://notes-app-liard-mu.vercel.app/">View Demo ➡️</a>
   </p>
 </div>
 
